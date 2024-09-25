@@ -10,7 +10,7 @@ $otp = $_GET['otp'] ?? '';
 // Vérifiez si 'number' et 'otp' sont définis
 if ($number && $otp) {
     // Construction de l'URL de l'API
-    $api_url = 'http://localhost/api_matsuri/getuser/' . urlencode($number) . '/' . urlencode($otp);
+    $api_url = $apiurl . 'getuser/' . urlencode($number) . '/' . urlencode($otp);
 
     // Configuration des options pour la requête HTTP
     $options = [

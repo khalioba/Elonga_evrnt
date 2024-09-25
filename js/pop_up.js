@@ -5,9 +5,6 @@ var modal2 = document.getElementById("pop_tikets");
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
-modal.style.display = "none";
-modal1.style.display = "none";
-modal2.style.display = "none";
 
 
 btn.onclick = function() {
@@ -36,6 +33,7 @@ window.onclick = function(event) {
 function openloader() {
   modal.style.display = "block";
   modal1.style.display = "block";
+  modal2.style.display = "none";
 }
 
 

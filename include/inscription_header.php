@@ -1,3 +1,6 @@
+<?php 
+    include('env.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,11 +18,15 @@
 
     <!--  -->
     <link rel="stylesheet" href="css/style.css?<?= rand() ?>">
+    <link rel="stylesheet" href="css/pop_up.css?<?= rand() ?>">
     <script src="js/pop_up.js?<?= rand() ?>" defer></script>
     <title>Matsuri</title>
 </head>
 
 <body>
+    <script>
+        var apiurl = '<?= $apiurl ?>'
+    </script>
 
     <header>
         <div class="logo_inscription space2">

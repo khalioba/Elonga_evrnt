@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+include('env.php');
 // Vérification de la présence du token de session dans la session ou le cookie
 $cookie_value = $_COOKIE['rememberMe'] ?? '';
 
@@ -17,7 +17,7 @@ if (!empty($cookie_value)) {
 
 if ($cookie_number && $cookie_otp) {
     // Construction de l'URL de l'API
-    $api_url = 'http://localhost/api_matsuri/getuser/' . $cookie_number . '/' . $cookie_otp;
+    $api_url = $apiurl.'getuser/' . $cookie_number . '/' . $cookie_otp;
 
     // Configuration des options pour la requête HTTP
     $options = [
@@ -73,6 +73,9 @@ if ($cookie_number && $cookie_otp) {
 </head>
 
 <body>
+    <script>
+        var apiurl = '<?= $apiurl ?>'
+    </script>
 
     <div class="main">
 
@@ -93,10 +96,10 @@ if ($cookie_number && $cookie_otp) {
                         <div class="photo_profil_name_title">
                             <div class="photo_profil">
                                 <?php 
-                                if ($result[0]['profil']) {
-                                    $img = $result[0]['profil'];
-                                } else {
+                                if ($result[0]['profil'] === '' or $result[0]['profil'] === NULL) {
                                     $img = 'image/profil.png';
+                                } else {
+                                    $img = $result[0]['profil'];
                                 }
                                 ?>
                                 <img src="<?= $img ?>" alt="">

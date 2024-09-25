@@ -9,7 +9,7 @@ $number = $_GET['number'];
         <p class="inscription_text space">Entrez le code reçu par SMS</p>
         <br>
     </div>
-
+ 
     <div class="informations space">
         <div class="inscription_box">
             

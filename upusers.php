@@ -6,7 +6,7 @@ $cookie_value = $_COOKIE['rememberMe'] ?? '';
 list($cookie_number, $cookie_otp) = explode('|', $cookie_value, 2);
 
 if ($cookie_number && $cookie_otp) {
-    $api_url = 'http://localhost/api_matsuri/getuser/' . $cookie_number . '/' . $cookie_otp;
+    $api_url = $apiurl .'getuser/' . $cookie_number . '/' . $cookie_otp;
     $options = [
         "http" => [
             "header" => "Accept: application/json\r\n",
@@ -19,6 +19,7 @@ if ($cookie_number && $cookie_otp) {
         $sms = 'Erreur lors de la récupération des données depuis l\'API.';
     }
     $result = json_decode($data, true);
+    
     if ($result && isset($result[0])) {
         $user_id = $result[0]['id_user'];
 
@@ -44,8 +45,15 @@ if ($cookie_number && $cookie_otp) {
                 <div class="inscription_box">
                     <div class="form" id="contactForm">
                     <div class="icon-wrapper" id="uploadIcon">
+                        <?php 
+                                if ($result[0]['profil'] === '' or $result[0]['profil'] === NULL) {
+                                    $img = 'image/profil.png';
+                                } else {
+                                    $img = $result[0]['profil'];
+                                }
+                                ?>
                 <div class="imageviw">
-                    <img class="imagep" id="imagePreview" src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D" style="max-width: 300px;">
+                    <img class="imagep" id="imagePreview" src="<?= $img ?>" style="max-width: 300px;">
                 </div>
             </div>
             <input type="file" name="profile_image" id="imageInput" accept="image/*"> 
@@ -93,12 +101,12 @@ if ($cookie_number && $cookie_otp) {
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             function upUser(tel, otp) {
+                closeloader();
                 var formData = new FormData();
                 formData.append('tel', tel);
                 formData.append('otp', otp);
                 formData.append('name', document.getElementById('name').value);
                 formData.append('first_name', document.getElementById('first_name').value);
-                // formData.append('title', document.getElementById('title').value);
                 formData.append('email', document.getElementById('email').value);
                 formData.append('age', document.getElementById('age').value);
                 formData.append('genre', document.getElementById('genre').value);
@@ -127,7 +135,7 @@ if ($cookie_number && $cookie_otp) {
                 };
 
                 var settings = {
-                    "url": "/api_matsuri/",
+                    "url": apiurl,
                     "method": "POST",
                     "timeout": 0,
                     "headers": {
@@ -137,7 +145,7 @@ if ($cookie_number && $cookie_otp) {
                 };
 
                 $.ajax(settings).done(function (response) {
-                    console.log(response);
+                    closeloader()
                 });
             }
         </script>
