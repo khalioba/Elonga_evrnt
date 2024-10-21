@@ -695,7 +695,6 @@ h4 {
 }
 
 .event_date {
-    display: flex;
     background-color: var(--menu_color);
     border-radius: 10px;
     padding: 10px;
@@ -933,7 +932,7 @@ h4 {
     align-items: center;
 }
 
-.entreprise_action button {
+.entreprise_action a {
     display: flex;
     align-items: center;
     background-color: var(--menu_color);
@@ -942,6 +941,7 @@ h4 {
     border-radius: 5px;
     padding: 7px;
     gap: 5px;
+    cursor: pointer;
 }
 
 .entreprise_action img {
@@ -1285,7 +1285,7 @@ p.ticket_name {
 }
 
 .forum_left {
-    width: 250px;
+    width: 130px;
     height: 100px;
     margin-right: 10px;
 }
@@ -1331,6 +1331,13 @@ p.forum_title {
     top: -15px;
     padding: 5px;
     background-color: var(--menu_color);
+}
+
+.forum_total_msg p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .forum_image {

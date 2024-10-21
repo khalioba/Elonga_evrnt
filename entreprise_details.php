@@ -1,21 +1,26 @@
 <?php
-include('include/header.php')
+include('include/header.php');
+
+$_GET['id_company'];
+
+$api_url_companys = $apiurl . 'company/'.$_GET['id_company'];
+$result_companys = fetchDataFromApi($api_url_companys);
 ?>
 
 <center>
     <div class="entreprise_couverture_name space_bottom">
         <div class="entreprise_couverture entreprise_photo_couv">
-            <img src="image/entreprise_couverture.png" alt="">
+            <img src="<?php echo $result_companys['image'] ?>" alt="">
         </div>
         <div class="entreprise_photo_profil">
-            <img src="image/entreprise.png" alt="">
+            <img src="<?php echo $result_companys['logo'] ?>" alt="">
         </div>
         <div class="entreprise_name_type">
             <div class="entreprise_name">
-                <p>Arashi</p>
+                <p><?php echo $result_companys['name'] ?></p>
             </div>
             <div class="entreprise_type">
-                <p>Divertissement</p>
+                <p><?php echo $result_companys['type'] ?></p>
             </div>
         </div>
     </div>
@@ -23,37 +28,33 @@ include('include/header.php')
 
 <div class="event_about space2 space_bottom space_top">
     <h3>A Propos</h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-        Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
-        dolor.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </p>
+    <p><?php echo $result_companys['description'] ?></p>
 </div>
 
 <div class="entreprise_contact space2 space_bottom space_top">
     <div class="entreprise_action call">
-        <button>
+        <a href="tel:<?php echo $result_companys['tel'] ?>">
             <img src="image/call.svg" alt="">
             <p>Appeler</p>
-        </button>
+        </a>
     </div>
     <div class="entreprise_action placeholder">
-        <button>
+        <a href="<?php echo $result_companys['maps'] ?>">
             <img src="image/placeholder.svg" alt="">
             <p>Itinéraire</p>
-        </button>
+        </a>
     </div>
     <div class="entreprise_action ecrire">
-        <button>
+        <a href="mailto:<?php echo $result_companys['email'] ?>">
             <img src="image/envelope.svg" alt="">
             <p>Ecrire</p>
-        </button>
+        </a>
     </div>
     <div class="entreprise_action site_web">
-        <button>
+        <a href="<?php echo $result_companys['web_site'] ?>">
             <img src="image/globe.svg" alt="">
             <p>Web</p>
-        </button>
+        </a>
     </div>
 </div>
 

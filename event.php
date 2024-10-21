@@ -1,16 +1,29 @@
 <?php
-include('include/header.php')
+include('include/header.php');
+$id_event= $_GET['id_event'];
+
+$api_url_event = $apiurl . 'events/' . $id_event;
+$result = fetchDataFromApi($api_url_event);
+
+if ($result['statu'] === 1) {
+    $style = 'event_type_premium';
+    $name = 'Evènement payant';
+    $ticket = 'Acheter un ticket';
+}
+else{
+    $style = 'event_type';
+    $name = 'Evènement gratuit';
+    $ticket = 'Prendre un ticket';
+}
 ?>
 
-
 <div class="visuel_slide space_bottom">
-    <img src="image/concert_carre3.jpg" alt="">
+    <img src="<?php echo $result['image'] ?>" alt="">
 </div>
-
 
 <center>
     <div class="visuel_title space2 space_bottom">
-        <h1>Festival du mangas</h1>
+        <h1><?php echo $result['title'] ?></h1>
     </div>
 </center>
 
@@ -19,17 +32,15 @@ include('include/header.php')
         <div class="event_date_place">
             <div class="event_date_time">
                 <img src="image/calendar.svg" alt="">
-                <p>Du 17 juin 2024 05h30
-                    Au 17 Aout 2024 14h25
-                </p>
+                <p><?php echo $result['date'] ?> </p>
             </div>
             <div class="event_place">
                 <img src="image/placeholder.svg" alt="">
-                <p>41 rue Raymond Paillet, Bacongo, Brazzaville</p>
+                <p><?php echo $result['address'] ?></p>
             </div>
         </div>
-        <div class="event_type_premium">
-            <p>Evènement payant</p>
+        <div class="<?php echo $style ?>">
+            <p><?php echo $name ?></p>
         </div>
 
     </div>
@@ -40,16 +51,12 @@ include('include/header.php')
     <center>
         <h3>A Propos</h3>
     </center>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-        Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
-        dolor.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </p>
+    <p><?php echo $result['description'] ?></p>
 </div>
 
 <center>
     <div class="buy_button space_bottom">
-        <button>Acheter un ticket</button>
+        <button><?php echo $ticket ?></button>
     </div>
 
 </center>
@@ -122,7 +129,6 @@ include('include/header.php')
         </div>
     </div>
 </div>
-
 <div class="lireplus_button space2 space_bottom">
     <button>
         <a href="discussion.php">Lire Plus</a>

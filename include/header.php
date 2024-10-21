@@ -1,5 +1,6 @@
 <?php 
 session_start();
+include('function/function.php');
 include('env.php');
 // Vérification de la présence du token de session dans la session ou le cookie
 $cookie_value = $_COOKIE['rememberMe'] ?? '';

@@ -1,4 +1,3 @@
 <?php
 // $apiurl = 'https://elonga-event-api.yashinka.net/';
-$apiurl = 'elonga-evrnt-api/';
-
+$apiurl = 'http://localhost/Elonga_evrnt_api/';
