@@ -15,7 +15,7 @@ $result_forums = fetchDataFromApi($api_url_forums);
 
 <div class="forum_all space_top">
 <?php foreach ($result_forums['tickets'] as $forum) { ?>
-    <a href="forum_message.php">
+    <a href="forum_message.php?id_forume=<?php echo $forum['id_forum'] ?>">
         <div class="forum_items">
             <div class="forum_left">
                 <img src="<?php echo $forum['event']['event_image'] ?>" alt="">
