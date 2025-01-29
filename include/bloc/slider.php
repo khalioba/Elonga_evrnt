@@ -18,4 +18,4 @@ $result_slider = fetchDataFromApis($api_url_slider);
         <?php  } ?>
     </div>
     <div class="swiper-pagination"></div>
-</div>
+</div> 

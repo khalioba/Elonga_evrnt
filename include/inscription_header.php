@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="image/icon/favicon.ico">
 
     <!-- Google font Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="css/style.css?<?= rand() ?>">
     <link rel="stylesheet" href="css/pop_up.css?<?= rand() ?>">
     <script src="js/pop_up.js?<?= rand() ?>" defer></script>
-    <title>Matsuri</title>
+    <title>Elonga-event</title>
 </head>
 
 <body>

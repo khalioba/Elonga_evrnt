@@ -8,7 +8,7 @@ include('include/inscription_header.php')
 <center>
     <div class="welcome_text space">
 
-        <p class="welcom_text1">Vous êtes le Bienvenue👋 sur Matsuri</p>
+        <p class="welcom_text1">Vous êtes le Bienvenue👋 <br /> sur Elonga event</p>
         <br>
         <!-- <p class="welcom_text2 space">Le site pour acheter les tickets et se faire plaisir</p> -->
         <br>

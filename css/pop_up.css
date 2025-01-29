@@ -32,6 +32,9 @@
     border: none;
   }
   
+  .modal-content .pop_image{
+    width: 100%;
+  }
   .modal-content .ticket_date,  .modal-content .ticket_name_about {
     color: #fff;
     font-size: 10px;

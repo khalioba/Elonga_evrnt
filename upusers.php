@@ -38,8 +38,8 @@ if ($cookie_number && $cookie_otp) {
         ?>
         <center>
             <div class="welcome_text space">
-                <p class="welcom_text1">Plus qu’une étape à franchir, ajoutez vos informations</p>
-            </div><br><br>
+                <p class="welcom_text1"></p>
+            </div><br>
            
             <div class="informations space">
                 <div class="inscription_box">
@@ -92,7 +92,8 @@ if ($cookie_number && $cookie_otp) {
                         </select>
                         <br><br>
                        
-                        <button type="button" onclick="upUser('<?= $cookie_number ?>', '<?= $cookie_otp ?>')" class="valid">S'inscrire</button>
+                        <button type="button" onclick="upUser('<?= $cookie_number ?>', '<?= $cookie_otp ?>')" class="valid">Enregistrer</button>
+                        <br><br>
                     </div>
                 </div>
             </div>
@@ -146,6 +147,7 @@ if ($cookie_number && $cookie_otp) {
 
                 $.ajax(settings).done(function (response) {
                     closeloader()
+                    window.location.href = 'index.php';
                 });
             }
         </script>

@@ -5,7 +5,8 @@
     <span class="close"></span>
     <?php
     include('include/pop_up/pop_charge.php');
-    include('include/pop_up/pop_tickets.php')
+    include('include/pop_up/pop_image.php');
+    include('include/pop_up/pop_tickets.php');
     ?>
   </div>
 

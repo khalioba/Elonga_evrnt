@@ -25,7 +25,7 @@ $currentMonth = date('F');
     <div class="all_programme">
         <?php foreach ($month_event['events'] as $event) { ?>
             <?php
-            include('event.php')
+            include('include/bloc/event.php')
             ?>
         <?php } ?>
     </div>

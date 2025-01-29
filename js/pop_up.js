@@ -1,44 +1,78 @@
-// Get the modal
-var modal1 = document.getElementById("pop_charge");
-var modal2 = document.getElementById("pop_tikets");
+document.addEventListener("DOMContentLoaded", function () {
+  var modal = document.getElementById("myModal");
+  var modal1 = document.getElementById("pop_charge");
+  var modal2 = document.getElementById("pop_tikets");
+  var modal3 = document.getElementById("pop_image");
 
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
+  var btn = document.getElementById("myBtn");
+  var span = document.querySelector(".close");
+  var img = document.getElementById("myimage");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
 
+  // Vérifier si les éléments existent avant d'attacher des événements
+  if (btn && modal && modal1 && modal2 && modal3) {
+      btn.addEventListener("click", function () {
+          modal.style.display = "block";
+          modal1.style.display = "block";
+          modal2.style.display = "none";
+          modal3.style.display = "none";
 
-btn.onclick = function() {
-    modal.style.display = "block";
-    modal1.style.display = "block";
-    modal2.style.display = "none";
-    
-    setTimeout(function() {
-
-      modal.style.display = "block";
-      modal2.style.display = "block";
-      modal1.style.display = "none";
-    }, 6000);
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+          setTimeout(function () {
+              modal2.style.display = "block";
+              modal1.style.display = "none";
+          }, 600);
+      });
   }
-}
 
-function openloader() {
-  modal.style.display = "block";
-  modal1.style.display = "block";
-  modal2.style.display = "none";
-}
+  if (img && modal3) {
+      img.addEventListener("click", function () {
+          modal.style.display = "block";
+          modal3.style.display = "block";
+          modal1.style.display = "none";
+          modal2.style.display = "none";
 
+          modalImg.src = img.src;
+          captionText.innerHTML = img.alt;
+      });
+  }
 
-function closeloader() {
-  setTimeout(function() {
-    modal.style.display = "none";
-  }, 10000); // Delay in milliseconds (6000ms = 6 seconds)
-}
+  if (span) {
+      span.addEventListener("click", function () {
+          modal.style.display = "none";
+          modal1.style.display = "none";
+          modal2.style.display = "none";
+          modal3.style.display = "none";
+      });
+  }
+
+  window.addEventListener("click", function (event) {
+      if (event.target === modal) {
+          modal.style.display = "none";
+          modal1.style.display = "none";
+          modal2.style.display = "none";
+          modal3.style.display = "none";
+      }
+  });
+
+  function openloader() {
+      if (modal && modal1) {
+          modal.style.display = "block";
+          modal1.style.display = "block";
+      }
+      if (modal2) modal2.style.display = "none";
+  }
+
+  function closeloader() {
+      setTimeout(function () {
+          if (modal) modal.style.display = "none";
+          if (modal1) modal1.style.display = "none";
+          if (modal2) modal2.style.display = "none";
+          if (modal3) modal3.style.display = "none";
+      }, 10000); // 10 secondes
+  }
+
+  // Exposer les fonctions si nécessaire
+  window.openloader = openloader;
+  window.closeloader = closeloader;
+});

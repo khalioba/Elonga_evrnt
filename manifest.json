@@ -1,0 +1,21 @@
+{
+  "name": "Elonga event",
+    "short_name": "Elonga",
+    "start_url": "/index.php",
+    "background_color": "#111F2C",
+    "theme_color": "aliceblue",
+    "orientation": "portrait-primary",
+    "display": "standalone",
+    "icons": [
+    {
+      "src": "image/icon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "image/icon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

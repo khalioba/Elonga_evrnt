@@ -1,3 +1,7 @@
+<?php
+$api_url_ticket = $apiurl . 'events/' . $id_event;
+$result_tickets = fetchDataFromApis($api_url_ticket);
+?>
 <div id="Ticket" class="tabcontent">
     <div class="couverture_profil_user">
         <div class="couverture_user">
