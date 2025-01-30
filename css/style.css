@@ -685,6 +685,17 @@ h4 {
   object-fit: fill;
   border-radius: 10px;
   object-position: center;
+
+  animation: myAnim 1.5s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+  100% {
+    transform: scale(1);
+  }
+  0% {
+    transform: scale(1.5);
+  }
 }
 
 .visuel_title {

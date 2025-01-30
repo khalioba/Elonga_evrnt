@@ -103,3 +103,30 @@ function monthInFR($moisAnglais) {
 
     return isset($moisTraduction[$moisAnglais]) ? $moisTraduction[$moisAnglais] : "Mois invalide";
 }
+
+
+function timeAgo($date) {
+    // Créer un objet DateTime à partir de la date de l'événement
+    $dateTime = new DateTime($date);
+
+    // Obtenir la date actuelle
+    $now = new DateTime();
+
+    // Calculer la différence entre l'heure actuelle et la date de l'événement
+    $interval = $now->diff($dateTime);
+
+    // Afficher la différence en format humain
+    if ($interval->y > 0) {
+        return $interval->y . " an(s)";
+    } elseif ($interval->m > 0) {
+        return $interval->m . " Mois";
+    } elseif ($interval->d > 0) {
+        return $interval->d . " J";
+    } elseif ($interval->h > 0) {
+        return $interval->h . " H";
+    } elseif ($interval->i > 0) {
+        return $interval->i . " Min";
+    } else {
+        return "Il y a quelques secondes";
+    }
+}
