@@ -14,8 +14,8 @@ $result_forums = fetchDataFromApi($api_url_forums);
 </div>
 
 <div class="forum_all space_top">
-<?php foreach ($result_forums['tickets'] as $forum) { ?>
-    <a href="forum_message.php?id_forume=<?php echo $forum['id_forum'] ?>">
+<?php foreach ($result_forums['forums'] as $forum) { ?>
+    <a href="forum_message.php?id_event=<?php echo $forum['event']['id_event'] ?>">
         <div class="forum_items">
             <div class="forum_left">
                 <img src="<?php echo $forum['event']['event_image'] ?>" alt="">
@@ -24,6 +24,7 @@ $result_forums = fetchDataFromApi($api_url_forums);
                 <p span class="forum_title"><?php echo $forum['event']['event_title'] ?>"</p>
                 <p><?php echo $forum['event']['event_description'] ?></p>
             </div>
+            
             <div class="forum_total_msg">
                 <p><?php echo count($forum['forums']); ?></p>
             </div>

@@ -11,6 +11,7 @@
     }
     
     include('include/pop_up/pop_image.php');
+    include('include/pop_up/pop_comment.php');
     ?>
   </div>
 

@@ -1,7 +1,7 @@
 <?php
 include('include/header.php');
 
-$api_url_forums = $apiurl . 'forum/'.$_GET['id_forume'];
+$api_url_forums = $apiurl . 'forums/'.$_GET['id_event'];
 $result_forums = fetchDataFromApi($api_url_forums);
 ?>
 
@@ -27,16 +27,16 @@ $result_forums = fetchDataFromApi($api_url_forums);
                 </div>
             </div>
             <div class="discussion_date_time">
-                <p><?php echo $forum['date'] ?></p>
+                <p><?php echo timeAgo($forum['date']) ?></p>
             </div>
         </div>
     </div>
     <?php } ?>
 </div>
 
-<form class="forum_message_typing" action="forum_message.php">
-    <input type="text" placeholder="Message..." name="search2">
-    <button type="submit"><img src="image/sent_message.svg" alt=""></button>
-</form>
+<div class="bottom">
+    <button id="msg" class="btn_message"><i class="fa-solid fa-paper-plane"></i></button>
+   
+</div>
 
 <br><br>

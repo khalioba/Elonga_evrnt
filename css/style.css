@@ -2,7 +2,9 @@
 
 .main {
   max-width: 450px;
+  min-height: 100vh;
   margin: auto;
+  position: relative;
 }
 
 :root {
@@ -28,6 +30,13 @@
   --animate-duration: 1.5s;
   --animate-delay: 1s;
   --animate-repeat: 1;
+}
+.flexs {
+  display: flex;
+}
+
+.full {
+  width: 100%;
 }
 
 img {
@@ -1287,17 +1296,17 @@ p.ticket_name {
 }
 
 .forum_left {
-  width: 130px;
-  height: 100px;
+  display: flex;
+  width: 150px;
   margin-right: 10px;
 }
 
 .forum_items img {
   width: 100%;
-  height: 100%;
-  object-fit: fill;
+  /* height: 100%; */
+  object-fit: cover !important;
   margin-right: 10px;
-  border-radius: 10px;
+  border-radius: 2px;
 }
 
 .input-wrapper {
@@ -1355,57 +1364,6 @@ p.forum_title {
   object-position: center;
 }
 
-.form.forum_message_typing {
-  position: sticky;
-  display: flex;
-  width: 97%;
-  margin-left: auto;
-  margin-right: auto;
-  bottom: 0;
-  margin-bottom: 10px;
-}
-
-.form.forum_message_typing input[type="text"] {
-  padding: 10px;
-  color: var(--texte);
-  font-size: 17px;
-  border-bottom: 2px solid var(--outline);
-  border-left: 2px solid var(--outline);
-  border-top: 2px solid var(--outline);
-  border-right: none;
-  float: left;
-  width: 85%;
-  background: var(--menu_color);
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.form.forum_message_typing button {
-  float: left;
-  width: 10%;
-  border-bottom: 2px solid var(--outline);
-  border-right: 2px solid var(--outline);
-  border-top: 2px solid var(--outline);
-  border-left: none;
-  cursor: pointer;
-  background: var(--menu_color);
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.form .imagep {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 100%;
-}
-
-.imagep {
-  width: 250px;
-  height: 250px;
-  position: relative;
-}
-
 .icon-wrapper {
   cursor: pointer;
   font-size: 2em;
@@ -1420,9 +1378,6 @@ p.forum_title {
 #imageInput {
   display: none;
 }
-/* form.forum_message_typing button:hover {
-    background: #0b7dda;
-} */
 
 .form.forum_message_typing::after {
   content: "";
@@ -1462,4 +1417,39 @@ p.forum_title {
 
 .centerdiv h2 {
   color: var(--dots-color);
+}
+
+.bottom {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 15px;
+  right: 10px;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0px 0px 16px 0px #027678;
+}
+.btn_message {
+  background: none;
+  font-size: 30px;
+  color: var(--button_color);
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.input_msg textarea {
+  border: none;
+  border-radius: 3px;
+}
+
+.input_msg .btn_msg {
+  width: 101%;
+  background: var(--button_color);
+  border: none;
+  padding: 10px;
+  border-radius: 3px;
+  color: #fff;
 }
