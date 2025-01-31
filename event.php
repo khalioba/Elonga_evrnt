@@ -1,20 +1,20 @@
 <?php
-include('include/header.php');
-$id_event= $_GET['id_event'];
+    include('include/header.php');
+    $id_event= $_GET['id_event'];
 
-$api_url_event = $apiurl . 'events/' . $id_event;
-$result = fetchDataFromApi($api_url_event);
+    $api_url_event = $apiurl . 'events/' . $id_event;
+    $result = fetchDataFromApi($api_url_event);
 
-if ($result['statu'] === 1) {
-    $style = 'event_type_premium';
-    $name = 'Evènement payant';
-    $ticket = 'Sélectionnez un ticket';
-} 
-else{
-    $style = 'event_type';
-    $name = 'Evènement gratuit';
-    $ticket = 'Prendre un ticket';
-}
+    if ($result['statu'] === 1) {
+        $style = 'event_type_premium';
+        $name = 'Evènement payant';
+        $ticket = 'Sélectionnez un ticket';
+    } 
+    else{
+        $style = 'event_type';
+        $name = 'Evènement gratuit';
+        $ticket = 'Prendre un ticket';
+    }
 ?>
 
 <div class="visuel_slide space_bottom">
@@ -65,4 +65,5 @@ else{
 
 <?php
     include('discussion_event.php');
+    include('include/footer.php');
 ?>

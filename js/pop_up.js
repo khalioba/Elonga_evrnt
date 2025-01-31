@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modal1.style.display = "block";
       modal2.style.display = "none";
       modal3.style.display = "none";
+      modal4.style.display = "none";
 
       setTimeout(function () {
         modal2.style.display = "block";
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modal3.style.display = "block";
       modal1.style.display = "none";
       modal2.style.display = "none";
+      modal4.style.display = "none";
 
       modalImg.src = img.src;
       captionText.innerHTML = img.alt;
@@ -60,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modal1.style.display = "none";
       modal2.style.display = "none";
       modal3.style.display = "none";
+      modal4.style.display = "none";
     });
   }
 
@@ -69,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modal1.style.display = "none";
       modal2.style.display = "none";
       modal3.style.display = "none";
+      modal4.style.display = "none";
     }
   });
 
@@ -76,6 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (modal && modal1) {
       modal.style.display = "block";
       modal1.style.display = "block";
+      modal2.style.display = "none";
+      modal3.style.display = "none";
+      modal4.style.display = "none";
     }
     if (modal2) modal2.style.display = "none";
   }
@@ -86,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (modal1) modal1.style.display = "none";
       if (modal2) modal2.style.display = "none";
       if (modal3) modal3.style.display = "none";
+      if (modal4) modal4.style.display = "none";
     }, 10000); // 10 secondes
   }
 

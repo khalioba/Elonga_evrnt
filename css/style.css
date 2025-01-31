@@ -1,7 +1,8 @@
 /* @media screen and (max-width: 450px) { */
 
 .main {
-  max-width: 450px;
+  width: 100%;
+  max-width: 350px;
   min-height: 100vh;
   margin: auto;
   position: relative;
@@ -33,8 +34,12 @@
 }
 .flexs {
   display: flex;
+  align-items: center;
 }
 
+.flexs_space {
+  justify-content: space-between;
+}
 .full {
   width: 100%;
 }
@@ -1452,4 +1457,11 @@ p.forum_title {
   padding: 10px;
   border-radius: 3px;
   color: #fff;
+}
+
+.discussion_all2 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
 }

@@ -12,9 +12,18 @@ $result_forums = fetchDataFromApi($api_url_forums);
 
 <div class="discussion space_bottom space2">
     <h3>Discussion</h3>
-    <?php foreach ($result_forums['forums'] as $forum) { ?>
+    <?php
+    $forums = array_reverse($result_forums['forums']);
+     foreach ($forums as $forum) { 
+
+        if ($result[0]['id_user']  === $forum['user']['id_user']) {
+            $ss = 2;
+        } else {
+            $ss = '';
+        }
+        ?>
     <div class="discussion_bg space_bottom">
-        <div class="discussion_all">
+        <div class="discussion_all<?php echo $ss ?>">
             <div class="discussion_profile">
                 <img src="<?php echo $forum['user']['profil'] ?>" alt="">
             </div>
@@ -35,8 +44,9 @@ $result_forums = fetchDataFromApi($api_url_forums);
 </div>
 
 <div class="bottom">
-    <button id="msg" class="btn_message"><i class="fa-solid fa-paper-plane"></i></button>
+    <button id="msg" class="btn_message"><i class="fa-solid fa-pen"></i></button>
    
 </div>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/post_forum.js?<?= rand() ?>"></script>
 <br><br>
